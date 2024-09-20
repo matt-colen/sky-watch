@@ -1,1 +1,24 @@
+:root {
+  --font-primary: "Inria Sans", sans-serif;
+  --txt-color-primary: #fdfdfd;
+}
 
+* {
+  margin: 0;
+}
+
+p {
+  line-height: 1.4;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--font-primary);
+}
+
+body {
+  color: var(--txt-color-primary);
+  background: linear-gradient(to right, #f56217, #0b486b);
+}
