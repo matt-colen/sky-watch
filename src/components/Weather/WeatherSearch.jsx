@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { WeatherContext } from "./Weather";
+import "./WeatherSearch.css";
 
 export default function WeatherSearch() {
   const { destination, handleChange } = useContext(WeatherContext);
@@ -9,16 +10,18 @@ export default function WeatherSearch() {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <label htmlFor="city-search">Enter City Name</label>
+    <form className="search-form" onSubmit={handleFormSubmit}>
+      <label htmlFor="city-search">City Name</label>
       <input
+        className="city-search"
         id="city-search"
         type="search"
         name="city-search"
         value={destination}
         onChange={handleChange}
+        placeholder="Get current weather for..."
       />
-      <button>Get Current Weather</button>
+      <button className="btn btn--primary">Get Current Weather</button>
     </form>
   );
 }

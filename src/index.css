@@ -1,14 +1,21 @@
 :root {
   --font-primary: "Inria Sans", sans-serif;
   --txt-color-primary: #fdfdfd;
+  --radius-normal: 4px;
+  --color-primary: #0b486b;
 }
 
 * {
   margin: 0;
 }
 
-p {
-  line-height: 1.4;
+html, body {
+  min-height: 100%;
+}
+
+body {
+  color: var(--txt-color-primary);
+  background: linear-gradient(to bottom, #f56217, var(--color-primary));
 }
 
 body,
@@ -18,7 +25,22 @@ textarea {
   font-family: var(--font-primary);
 }
 
-body {
-  color: var(--txt-color-primary);
-  background: linear-gradient(to right, #f56217, #0b486b);
+button {
+  cursor: pointer;
+  border: none;
+}
+
+p {
+  line-height: 1.4;
+}
+
+.btn {
+  padding: 0.5em 1em;
+  border-radius: var(--radius-normal);
+  transition: 0.3s all;
+  font-weight: bold;
+}
+
+.btn:hover {
+  opacity: 0.9;
 }
