@@ -1,6 +1,5 @@
+import "./WeatherResults.css";
+
 export default function WeatherResults() {
-  return (
-    <>
-    </>
-  )
-};
+  return <div className="weather-results"></div>;
+}

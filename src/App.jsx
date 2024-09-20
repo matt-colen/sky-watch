@@ -1,14 +1,14 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Weather from "./components/Weather/index";
-import WeatherSearch from "./components/Weather/WeatherSearch";
 
 function App() {
   return (
     <div className="container">
       <Header />
       <Weather>
-        <WeatherSearch />
+        <Weather.Results />
+        <Weather.Search />
       </Weather>
     </div>
   );
