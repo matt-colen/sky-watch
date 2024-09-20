@@ -1,20 +1,22 @@
-export default async (request) => {
-  const { query } = request.queryStringParameters;
-  const apiKey = process.env.API_KEY;
+export const handler = async (event) => {
+  const { query } = event.queryStringParameters;
+  const apiKey = Netlify.env.get("API_KEY");
 
   try {
     const res = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`
     );
     const data = await res.json();
-    return new Response(JSON.stringify({ message: data }), {
-      status: 200,
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
-    });
+    };
   } catch (error) {
-    return new Response(JSON.stringify({ message: error }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: error.message }),
+    };
   }
 };

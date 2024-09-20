@@ -1,18 +1,33 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 
 const WeatherContext = createContext();
 
 export default function Weather({ children }) {
-  const [destination, setDestination] = useState("");
+  const [input, setInput] = useState("");
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    const getLocationsData = async () => {
+      if (!input || input.length < 3) return;
+      const res = await fetch(
+        `/.netlify/functions/getLocations?query=${input}`
+      );
+      const data = await res.json();
+      setLocations(data);
+    };
+
+    getLocationsData();
+  }, [input]);
 
   const handleChange = (e) => {
-    setDestination(e.target.value);
+    setInput(e.target.value);
   };
 
-  console.log("Destination State: ", destination);
+  console.log("Input State: ", input);
+  console.log("Locations State: ", locations);
 
   return (
-    <WeatherContext.Provider value={{ destination, handleChange }}>
+    <WeatherContext.Provider value={{ input, handleChange }}>
       {children}
     </WeatherContext.Provider>
   );
