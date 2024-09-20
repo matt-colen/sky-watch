@@ -27,7 +27,7 @@ export default function Weather({ children }) {
   console.log("Locations State: ", locations);
 
   return (
-    <WeatherContext.Provider value={{ input, handleChange }}>
+    <WeatherContext.Provider value={{ input, handleChange, locations }}>
       {children}
     </WeatherContext.Provider>
   );
