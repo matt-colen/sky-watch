@@ -7,10 +7,10 @@ function App() {
     <div className="container">
       <Header />
       <Weather>
-        <Weather.Results />
         <Weather.Search>
           <Weather.Suggestions />
         </Weather.Search>
+        <Weather.Results />
       </Weather>
     </div>
   );

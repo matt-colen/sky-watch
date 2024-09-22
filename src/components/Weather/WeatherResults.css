@@ -1,0 +1,34 @@
+.weather-results {
+  display: grid;
+  gap: 2em;
+}
+
+.weather-details,
+.weather-description {
+  display: grid;
+  place-items: center;
+}
+
+.weather-details {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: 1em;
+}
+
+.weather-location {
+  font-size: 1.5rem;
+}
+
+.current-temp {
+  font-size: 2rem;
+  margin-bottom: 0.3em;
+  border: 1px solid white;
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-normal);
+}
+
+@media (min-width: 700px) {
+  .current-temp {
+    font-size: 3rem;
+  }
+}

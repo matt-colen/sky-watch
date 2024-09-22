@@ -8,7 +8,9 @@ export default function WeatherSearch({ children }) {
   return (
     <div className="search-container">
       <form className="search-form">
-        <label htmlFor="search-input">City Name</label>
+        <label className="search-label" htmlFor="search-input">
+          City Name
+        </label>
         <input
           className="search-input"
           id="search-input"

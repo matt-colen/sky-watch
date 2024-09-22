@@ -3,5 +3,11 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  gap: 4em;
+  gap: 3em;
+}
+
+@media (min-width: 700px) {
+  .container {
+    gap: 6em;
+  }
 }
