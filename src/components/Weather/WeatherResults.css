@@ -12,7 +12,7 @@
 .weather-details {
   grid-template-columns: repeat(2, 1fr);
   align-items: start;
-  gap: 1em;
+  gap: 2em;
 }
 
 .weather-location {

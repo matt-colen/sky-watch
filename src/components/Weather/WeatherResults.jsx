@@ -5,8 +5,6 @@ import "./WeatherResults.css";
 export default function WeatherResults() {
   const { selection, weather } = useContext(WeatherContext);
 
-  console.log(weather);
-
   return (
     <div className="weather-results">
       <h2 className="weather-location">
@@ -30,9 +28,12 @@ export default function WeatherResults() {
               />
             </div>
             <div className="temps">
-              <p className="current-temp">{Math.round(weather.main.temp)} F</p>
-              <p>High: {Math.round(weather.main.temp_max)} F</p>
-              <p>Low: {Math.round(weather.main.temp_min)} F</p>
+              <p className="current-temp">
+                {Math.round(weather.main.temp)}{" "}
+                <span className="txt--sm">&deg;F</span>
+              </p>
+              <p>High: {Math.round(weather.main.temp_max)} &deg;F</p>
+              <p>Low: {Math.round(weather.main.temp_min)} &deg;F</p>
             </div>
           </div>
         </>

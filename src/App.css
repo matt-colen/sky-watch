@@ -1,5 +1,5 @@
 .container {
-  margin: 2em 10%;
+  margin: 2em 5%;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -8,6 +8,7 @@
 
 @media (min-width: 700px) {
   .container {
+    margin: 2em 10%;
     gap: 6em;
   }
 }

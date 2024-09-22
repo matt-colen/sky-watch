@@ -11,9 +11,25 @@
   display: grid;
 }
 
-.search-input {
+.search-input-container {
+  display: flex;
   margin: 0.5em 0;
+}
+
+.search-input {
+  flex-grow: 1;
   padding: 0.5em;
-  border-radius: var(--radius-normal);
+  border-radius: var(--radius-normal) 0 0 var(--radius-normal);
   border: none;
+}
+
+.search-input-container > button {
+  border-radius: 0 var(--radius-normal) var(--radius-normal) 0;
+  font-weight: bold;
+  background: var(--color-primary);
+  color: var(--txt-color-primary);
+}
+
+.search-input-container > button:hover {
+  opacity: 0.9;
 }
