@@ -8,12 +8,15 @@ export default function Weather({ children }) {
 
   useEffect(() => {
     const getLocationsData = async () => {
-      if (!input || input.length < 3) return;
-      const res = await fetch(
-        `/.netlify/functions/getLocations?query=${input}`
-      );
-      const data = await res.json();
-      setLocations(data);
+      try {
+        const res = await fetch(
+          `/.netlify/functions/getLocations?query=${input}`
+        );
+        const data = await res.json();
+        setLocations(data);
+      } catch (err) {
+        console.error(err);
+      }
     };
 
     getLocationsData();

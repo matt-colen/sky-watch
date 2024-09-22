@@ -8,7 +8,9 @@ function App() {
       <Header />
       <Weather>
         <Weather.Results />
-        <Weather.Search />
+        <Weather.Search>
+          <Weather.Suggestions />
+        </Weather.Search>
       </Weather>
     </div>
   );

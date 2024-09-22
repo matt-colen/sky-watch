@@ -1,0 +1,17 @@
+.search-results {
+  padding: 0;
+  list-style: none;
+  border-radius: var(--radius-normal);
+}
+
+.search-result {
+  color: #333;
+  padding: 1em;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: white;
+}
+
+.search-result:hover {
+  opacity: 0.9;
+}

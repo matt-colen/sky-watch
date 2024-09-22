@@ -3,6 +3,7 @@
   --txt-color-primary: #fdfdfd;
   --radius-normal: 4px;
   --color-primary: #0b486b;
+  --color-secondary: #f56217;
 }
 
 * {
@@ -16,7 +17,11 @@ body {
 
 body {
   color: var(--txt-color-primary);
-  background: linear-gradient(to bottom, #f56217, var(--color-primary));
+  background: linear-gradient(
+    to bottom,
+    var(--color-secondary),
+    var(--color-primary)
+  );
 }
 
 body,
@@ -34,15 +39,4 @@ button {
 
 p {
   line-height: 1.4;
-}
-
-.btn {
-  padding: 0.5em 1em;
-  border-radius: var(--radius-normal);
-  transition: 0.3s all;
-  font-weight: bold;
-}
-
-.btn:hover {
-  opacity: 0.9;
 }

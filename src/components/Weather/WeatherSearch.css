@@ -1,24 +1,15 @@
-.search-form {
-  display: grid;
+.search-container {
   width: 100%;
   max-width: 500px;
 }
 
-.city-search {
-  margin: 0.2em 0 1em 0;
-  font-size: 1rem;
+.search-form {
+  display: grid;
+}
+
+.search-input {
+  margin: 0.5em 0;
   padding: 0.5em;
   border-radius: var(--radius-normal);
   border: none;
-}
-
-.btn--primary {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-@media (min-width: 700px) {
-  .btn--primary {
-    justify-self: flex-start;
-  }
 }
