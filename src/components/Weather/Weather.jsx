@@ -63,6 +63,11 @@ export default function Weather({ children }) {
     locations.length > 0 && handleSelection(locations[0]);
   };
 
+  console.log('Input',input);
+  console.log('Locations', locations);
+  console.log('Selection', selection);
+  console.log("Weather", weather);
+
   return (
     <WeatherContext.Provider
       value={{
