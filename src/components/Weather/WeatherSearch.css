@@ -13,24 +13,39 @@
 
 .search-input-container {
   display: flex;
+  flex-flow: column;
   margin: 0.5em 0;
 }
 
 .search-input {
   flex-grow: 1;
-  padding: 0.5em;
-  border-radius: var(--radius-normal) 0 0 var(--radius-normal);
+  padding: 0.7em;
+  border-radius: var(--radius-normal) var(--radius-normal) 0 0;
   border: none;
 }
 
-.search-input-container > button {
-  border-radius: 0 var(--radius-normal) var(--radius-normal) 0;
+.search-btn {
   font-weight: bold;
   background: var(--color-primary);
   color: var(--txt-color-primary);
-  padding: 0 0.5em;
+  border-radius: 0 0 var(--radius-normal) var(--radius-normal);
+  padding: 0.7em 1em;
+  width: 100%;
 }
 
-.search-input-container > button:hover {
+.search-btn:hover {
   opacity: 0.9;
+}
+
+@media (min-width: 500px) {
+  .search-input-container {
+    flex-flow: row;
+  }
+  .search-input {
+    border-radius: var(--radius-normal) 0 0 var(--radius-normal);
+  }
+  .search-input-container > button {
+    width: unset;
+    border-radius: 0 var(--radius-normal) var(--radius-normal) 0;
+  }
 }

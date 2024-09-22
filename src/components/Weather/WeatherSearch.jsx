@@ -23,7 +23,7 @@ export default function WeatherSearch() {
             onChange={handleChange}
             placeholder="Get current weather for..."
           />
-          <button>Get Weather</button>
+          <button className="search-btn">Get Weather</button>
         </div>
       </form>
       <WeatherSuggestions />
