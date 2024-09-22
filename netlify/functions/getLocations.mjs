@@ -1,6 +1,6 @@
 export const handler = async (event) => {
   const { query } = event.queryStringParameters;
-  const apiKey = Netlify.env.get("API_KEY");
+  const apiKey = process.env.API_KEY;
 
   try {
     const res = await fetch(
