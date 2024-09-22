@@ -20,7 +20,7 @@ export default function WeatherSuggestions() {
             onClick={handleSelection}
           >
             {`${location.name}, `}
-            <span className="bold">{`${location.state && `${location.state}, `}
+            <span className="bold">{`${location.state ? `${location.state}, ` : ''}
           ${location.country}`}</span>
           </li>
         ))}
