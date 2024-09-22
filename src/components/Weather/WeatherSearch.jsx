@@ -1,9 +1,11 @@
 import { useContext } from "react";
+import WeatherSuggestions from "./WeatherSuggestions";
 import { WeatherContext } from "./Weather";
 import "./WeatherSearch.css";
 
-export default function WeatherSearch({ children }) {
-  const { input, handleChange, handleSubmit } = useContext(WeatherContext);
+export default function WeatherSearch() {
+  const { input, handleChange, handleSubmit, locations } =
+    useContext(WeatherContext);
 
   return (
     <div className="search-container">
@@ -24,7 +26,7 @@ export default function WeatherSearch({ children }) {
           <button>Get Weather</button>
         </div>
       </form>
-      {children}
+      <WeatherSuggestions />
     </div>
   );
 }

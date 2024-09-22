@@ -28,6 +28,7 @@
   font-weight: bold;
   background: var(--color-primary);
   color: var(--txt-color-primary);
+  padding: 0 0.5em;
 }
 
 .search-input-container > button:hover {

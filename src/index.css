@@ -46,3 +46,7 @@ p {
 .txt--sm {
   font-size: 1rem;
 }
+
+.bold {
+  font-weight: bold;
+}
