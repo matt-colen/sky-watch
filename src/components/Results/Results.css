@@ -1,38 +1,29 @@
-.welcome {
-  gap: 1em;
-  place-items: center;
-  max-width: 500px;
-}
-
-.welcome-icon {
-  font-size: 2rem;
-}
-
-.weather-results {
+.results-container {
   display: grid;
   gap: 3em;
-  border-left: 10px solid var(--color-secondary-light);
-  color: white;
-  padding: 1em;
+  border-left: 7px solid var(--color-secondary-light);
+  color: var(--txt-color-primary);
   width: 100%;
   max-width: 500px;
   animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-.weather-details {
+.result-location {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.result-details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
 }
 
-.weather-location {
-  font-size: 1.5rem;
-}
-
 .temp {
   font-size: 3rem;
   margin-top: 0.2em;
-  border-radius: var(--radius-normal);
+  line-height: 1;
+  padding: 0.2em;
 }
 
 @keyframes slide-in-top {

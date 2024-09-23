@@ -1,19 +1,19 @@
-.search-results {
+.suggestions {
   padding: 0;
   list-style: none;
-  border-radius: var(--radius-normal);
 }
 
-.search-result {
-  color: #333;
+.suggestion {
+  color: var(--color-primary);
   padding: 1em;
   cursor: pointer;
   transition: all 0.3s;
-  background: white;
+  background: var(--txt-color-primary);
   text-align: left;
+  letter-spacing: 1px;
 }
 
-.search-result:hover {
+.suggestion:hover {
   opacity: 0.9;
 }
 

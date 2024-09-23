@@ -1,0 +1,9 @@
+.welcome-container {
+  gap: 1em;
+  place-items: center;
+  max-width: 500px;
+}
+
+.welcome-icon {
+  font-size: 2rem;
+}

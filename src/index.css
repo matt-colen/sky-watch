@@ -2,10 +2,12 @@
   --font-primary: "Inria Sans", sans-serif;
   --txt-color-primary: #fdfdfd;
   --txt-color-secondary: #111212;
+  --txt-color-error: #8a0c0c;
   --radius-normal: 4px;
   --color-primary: #0b486b;
   --color-secondary: #f56217;
   --color-secondary-light: #f7a47b;
+  --color-error: #fc8f8f;
 }
 
 * {
@@ -54,9 +56,9 @@ p {
 }
 
 .error {
-  background: rgb(252, 143, 143);
-  color: rgb(138, 12, 12);
-  padding: .7em;
+  background: var(--color-error);
+  color: var(--txt-color-error);
+  padding: 0.7em;
   border-radius: var(--radius-normal);
 }
 
