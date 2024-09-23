@@ -4,11 +4,11 @@ import { WeatherContext } from "./Weather";
 import "./WeatherSearch.css";
 
 export default function WeatherSearch() {
-  const { input, handleChange, handleSubmit, locations } =
+  const { input, handleChange, handleSubmit, searchError, fetchError } =
     useContext(WeatherContext);
 
   return (
-    <div className="search-container">
+    <main className="search-container">
       <form className="search-form" onSubmit={handleSubmit}>
         <label className="search-label" htmlFor="search-input">
           City Name
@@ -21,12 +21,16 @@ export default function WeatherSearch() {
             name="search-input"
             value={input}
             onChange={handleChange}
-            placeholder="Get current weather for..."
+            placeholder="Find weather by city..."
           />
-          <button className="search-btn">Get Weather</button>
+          <button className="search-btn">Find Weather</button>
         </div>
       </form>
+      {searchError && <p className="error bold">Please enter a city name</p>}
+      {fetchError && (
+        <p className="error bold">Something went wrong, please try again</p>
+      )}
       <WeatherSuggestions />
-    </div>
+    </main>
   );
 }

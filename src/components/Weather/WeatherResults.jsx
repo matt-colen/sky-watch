@@ -1,21 +1,29 @@
 import { useContext } from "react";
 import { WeatherContext } from "./Weather";
+import { TiWeatherPartlySunny } from "react-icons/ti";
 import "./WeatherResults.css";
 
 export default function WeatherResults() {
   const { selection, weather } = useContext(WeatherContext);
 
   if (!weather.name) {
-    return <></>;
+    return (
+      <div className="grid welcome">
+        <h2 className="welcome-msg">
+          Welcome, search for a city to find current weather
+        </h2>
+        <TiWeatherPartlySunny className="welcome-icon" />
+      </div>
+    );
   }
 
   return (
     <div className="weather-results">
       <h2 className="weather-location">
         {selection.name &&
-          `${selection.name}, ${selection.state && `${selection.state},`} ${
-            selection.country
-          }`}
+          `${selection.name}, ${
+            selection.state ? `${selection.state}, ` : ""
+          } ${selection.country}`}
       </h2>
       {weather.main && (
         <>

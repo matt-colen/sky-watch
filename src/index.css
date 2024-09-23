@@ -5,6 +5,7 @@
   --radius-normal: 4px;
   --color-primary: #0b486b;
   --color-secondary: #f56217;
+  --color-secondary-light: #f7a47b;
 }
 
 * {
@@ -29,8 +30,7 @@ body {
 
 body,
 button,
-input,
-textarea {
+input {
   font-family: var(--font-primary);
   font-size: 1rem;
 }
@@ -44,10 +44,26 @@ p {
   line-height: 1.4;
 }
 
+/* Utility  */
 .txt--sm {
   font-size: 1rem;
 }
 
 .bold {
   font-weight: bold;
+}
+
+.error {
+  background: rgb(252, 143, 143);
+  color: rgb(138, 12, 12);
+  padding: .7em;
+  border-radius: var(--radius-normal);
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
 }

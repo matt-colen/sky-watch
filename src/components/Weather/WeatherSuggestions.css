@@ -16,3 +16,7 @@
 .search-result:hover {
   opacity: 0.9;
 }
+
+.suggestion-span {
+  pointer-events: none;
+}

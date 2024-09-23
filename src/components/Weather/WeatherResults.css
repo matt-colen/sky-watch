@@ -1,8 +1,17 @@
+.welcome {
+  gap: 1em;
+  place-items: center;
+  max-width: 500px;
+}
+
+.welcome-icon {
+  font-size: 2rem;
+}
+
 .weather-results {
   display: grid;
   gap: 3em;
-  background: var(--color-primary);
-  border-radius: var(--radius-normal);
+  border-left: 10px solid var(--color-secondary-light);
   color: white;
   padding: 1em;
   width: 100%;
