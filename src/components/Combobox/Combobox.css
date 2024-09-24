@@ -51,6 +51,10 @@
   opacity: 0.9;
 }
 
+.highlight {
+  background: var(--combobox-bg);
+}
+
 .suggestion-span {
   pointer-events: none;
 }

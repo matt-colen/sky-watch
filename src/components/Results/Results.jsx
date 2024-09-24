@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { SearchContext } from '../../App';
+import { AppContext } from "../../App";
 import "./Results.css";
 
 export default function Results() {
-  const { selection, weather } = useContext(SearchContext);
+  const { selection, weather } = useContext(AppContext);
 
   if (!selection.name || !weather.main) {
     return <></>;

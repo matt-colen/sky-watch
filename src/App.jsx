@@ -1,48 +1,17 @@
 import { useState, useEffect, createContext } from "react";
 import Header from "./components/Header/Header";
 import Combobox from "./components/Combobox/Combobox";
-import Results from "./components/Results/Results";
 import Welcome from "./components/Welcome/Welcome";
+import Results from "./components/Results/Results";
 import "./App.css";
 
-const SearchContext = createContext();
+const AppContext = createContext();
 
 export default function App() {
-  const [input, setInput] = useState("");
-  const [locations, setLocations] = useState([]);
   const [selection, setSelection] = useState({});
-  const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [weather, setWeather] = useState({});
   const [searchError, setSearchError] = useState(false);
   const [fetchError, setFetchError] = useState(false);
-
-  useEffect(() => {
-    setFetchError(false);
-    const debounceTimeout = setTimeout(() => {
-      const getLocationsData = async () => {
-        try {
-          const res = await fetch(
-            `/.netlify/functions/getLocations?query=${input}`
-          );
-          if (!res.ok) {
-            // If the status is not in the 200-299 range, it's an error
-            throw new Error(
-              `Location fetch failed with status: ${res.statusCode}`
-            );
-          }
-          const data = await res.json();
-          setLocations(data);
-        } catch (err) {
-          console.error(err);
-          setFetchError(true);
-        }
-      };
-
-      input?.length > 0 && getLocationsData();
-    }, 500); // Debounce time of 500ms
-
-    return () => clearTimeout(debounceTimeout);
-  }, [input]);
 
   useEffect(() => {
     setFetchError(false);
@@ -52,9 +21,9 @@ export default function App() {
           `/.netlify/functions/getWeather?lat=${selection.lat}&lon=${selection.lon}`
         );
         if (!res.ok) {
-          // If the status is not in the 200-299 range, it's an error
+          // If the status is not in the 200-299 range, throw an error
           throw new Error(
-            `Weather fetch failed with status: ${res.statusCode}`
+            `Weather fetch failed with status: ${res.status}`
           );
         }
         const data = await res.json();
@@ -68,70 +37,26 @@ export default function App() {
     selection?.name && getWeatherData();
   }, [selection]);
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setSearchError(false);
-    setInput(value);
-    value === "" && setLocations([]); // Resets location suggestions on input clear
-  };
-
-  const handleSelection = (e) => {
-    const { lat, lon, name, state, country } = e.target?.dataset || e;
-    setSelection({ lat, lon, name, state, country });
-    setSearchError(false);
-    setInput("");
-    setLocations([]);
-  };
-
-  // Handles search btn click
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    locations.length > 0 ? handleSelection(locations[0]) : setSearchError(true);
-  };
-
-  const handleKeyDown = (e, options, highlightedIndex, setHighlightedIndex) => {
-    if (e.key === "ArrowDown") {
-      console.log("clicked");
-      // Move down in the list
-      setHighlightedIndex((prevIndex) =>
-        prevIndex < options.length - 1 ? prevIndex + 1 : prevIndex
-      );
-    } else if (e.key === "ArrowUp") {
-      // Move up in the list
-      setHighlightedIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
-    } else if (e.key === "Enter") {
-      // Select the current highlighted option
-      if (highlightedIndex !== -1) {
-        setInput(options[highlightedIndex]);
-      }
-    }
-  };
-
   return (
-    <SearchContext.Provider
+    <AppContext.Provider
       value={{
-        input,
-        handleChange,
-        locations,
         selection,
-        handleSelection,
         weather,
-        handleSubmit,
         searchError,
         fetchError,
-        highlightedIndex,
-        handleKeyDown,
-        setHighlightedIndex,
+        setSelection,
+        setSearchError,
+        setFetchError,
       }}
     >
       <div className="container">
         <Header />
         <Combobox />
-        <Results />
         <Welcome />
+        <Results />
       </div>
-    </SearchContext.Provider>
+    </AppContext.Provider>
   );
 }
 
-export { SearchContext };
+export { AppContext };

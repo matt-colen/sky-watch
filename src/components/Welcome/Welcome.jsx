@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { SearchContext } from "../../App";
+import { AppContext } from "../../App";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import "./Welcome.css";
 
 export default function Welcome() {
-  const { weather } = useContext(SearchContext);
+  const { weather } = useContext(AppContext);
 
   if (!weather.name) {
     return (

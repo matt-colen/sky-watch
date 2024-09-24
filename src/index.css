@@ -8,6 +8,7 @@
   --color-secondary: hsl(20, 92%, 53%);
   --color-secondary-light: hsl(20, 89%, 73%);
   --color-error: hsl(0, 95%, 77%);
+  --combobox-bg: hsl(202, 76%, 90%);
 }
 
 * {
