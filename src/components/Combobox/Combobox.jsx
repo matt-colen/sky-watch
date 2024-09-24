@@ -56,13 +56,12 @@ export default function Combobox() {
     setSearchError(false);
   };
 
-  // Handles search btn click
   const handleSubmit = (e) => {
     e.preventDefault();
     input.length > 0
       ? handleOptionClick(locations[highlightedIndex])
       : setSearchError(true);
-    setHighlightedIndex(-1);
+    setHighlightedIndex(0);
   };
 
   const handleKeyDown = (e) => {
