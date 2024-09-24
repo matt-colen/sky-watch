@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import Suggestions from "./Suggestions";
-import { SearchContext } from '../../App';
+import { SearchContext } from "../../App";
 import "./Combobox.css";
 
 export default function Combobox() {
@@ -14,6 +13,7 @@ export default function Combobox() {
     highlightedIndex,
     handleKeyDown,
     setHighlightedIndex,
+    handleSelection,
   } = useContext(SearchContext);
 
   return (
@@ -49,7 +49,34 @@ export default function Combobox() {
       {fetchError && (
         <p className="error bold">Something went wrong, please try again</p>
       )}
-      <Suggestions />
+      <ul id="suggestions" className="suggestions" role="listbox">
+        {locations.length > 1 &&
+          locations.map((location, index) => (
+            <li
+              key={index}
+              data-lat={location.lat}
+              data-lon={location.lon}
+              data-name={location.name}
+              data-state={location.state}
+              data-country={location.country}
+              onClick={handleSelection}
+              role="option"
+              id={`option-${index}`}
+              aria-selected={highlightedIndex === index}
+              className={
+                highlightedIndex === index
+                  ? "suggestion highlight"
+                  : "suggestion"
+              }
+            >
+              {`${location.name}, `}
+              <span className="suggestion-span bold">{`${
+                location.state ? `${location.state}, ` : ""
+              }
+          ${location.country}`}</span>
+            </li>
+          ))}
+      </ul>
     </main>
   );
 }

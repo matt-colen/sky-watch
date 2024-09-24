@@ -1,13 +1,13 @@
 :root {
   --font-primary: "Inria Sans", sans-serif;
-  --txt-color-primary: #fdfdfd;
-  --txt-color-secondary: #111212;
-  --txt-color-error: #8a0c0c;
+  --txt-color-primary: hsl(0, 0%, 99%);
+  --txt-color-secondary: hsl(180, 3%, 7%);
+  --txt-color-error: hsl(0, 84%, 29%);
   --radius-normal: 4px;
-  --color-primary: #0b486b;
-  --color-secondary: #f56217;
-  --color-secondary-light: #f7a47b;
-  --color-error: #fc8f8f;
+  --color-primary: hsl(202, 81%, 23%);
+  --color-secondary: hsl(20, 92%, 53%);
+  --color-secondary-light: hsl(20, 89%, 73%);
+  --color-error: hsl(0, 95%, 77%);
 }
 
 * {

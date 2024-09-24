@@ -4,8 +4,8 @@ An app to find the current weather for any destination
 
 ## Features:
 
-- Uses the "Current Weather Data" API from OpenWeather.
-- Uses the "Geocoding" API from OpenWeather for the search suggestions.
-- Netlify serverless functions to hide API fetch requests.
-- Utilizes "debouncing" on the keystrokes to improve app performance.
-- Simplified UI for easily accessing important info. 
+- Uses the OpenWeather "Current Weather Data" API.  
+- Uses the OpenWeather "Geocoding" API for the search suggestions.
+- Netlify serverless functions for API fetch requests.
+- Utilizes "debouncing" on the input field keystrokes to improve app performance.
+- Has a simplified UI for easily accessing important info. 
